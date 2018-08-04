@@ -1,0 +1,71 @@
+CREATE TABLE [dbo].[MMS_Profile]
+(
+[UserID] [int] NOT NULL,
+[FirstName] [varchar] (100) COLLATE Latin1_General_BIN NULL,
+[MiddleName] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[LastName] [varchar] (100) COLLATE Latin1_General_BIN NULL,
+[Suffix] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[NickName] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[Address1] [varchar] (100) COLLATE Latin1_General_BIN NULL,
+[Address2] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[City] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[StateID] [int] NULL,
+[Zipcode] [varchar] (10) COLLATE Latin1_General_BIN NULL,
+[CountryID] [int] NULL,
+[HomePhone] [varchar] (20) COLLATE Latin1_General_BIN NULL,
+[MobilePhone] [varchar] (20) COLLATE Latin1_General_BIN NULL,
+[WorkPhone] [varchar] (20) COLLATE Latin1_General_BIN NULL,
+[PrimaryPhone] [char] (1) COLLATE Latin1_General_BIN NULL,
+[FaxNumber] [varchar] (20) COLLATE Latin1_General_BIN NULL,
+[CallBeforeFaxing] [bit] NULL,
+[BirthDate] [datetime] NULL,
+[Gender] [char] (1) COLLATE Latin1_General_BIN NULL,
+[WantSpam] [bit] NULL,
+[WantSpamPromotionPartners] [bit] NULL,
+[WantSpamRegions] [bit] NULL,
+[WantSpamERaces] [bit] NULL,
+[WantSpamRaces] [bit] NULL,
+[WantSpamNewsletterLife] [bit] NULL,
+[WantSpamENewsletter] [bit] NULL,
+[AEmail1] [nvarchar] (100) COLLATE Latin1_General_BIN NULL,
+[AEmail2] [nvarchar] (100) COLLATE Latin1_General_BIN NULL,
+[AAddress1] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[AAddress2] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[ACity] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[AStateID] [int] NULL,
+[ACountryID] [int] NULL,
+[AZipcode] [varchar] (50) COLLATE Latin1_General_BIN NULL,
+[AStartDate] [datetime] NULL,
+[AEndDate] [datetime] NULL,
+[EFirstName] [varchar] (100) COLLATE Latin1_General_BIN NULL,
+[ELastName] [varchar] (100) COLLATE Latin1_General_BIN NULL,
+[EDayPhone] [varchar] (20) COLLATE Latin1_General_BIN NULL,
+[EEveningPhone] [varchar] (20) COLLATE Latin1_General_BIN NULL,
+[ERelationship] [varchar] (200) COLLATE Latin1_General_BIN NULL,
+[RegionID] [int] NULL,
+[EthnicityID] [int] NULL,
+[IncomeLevelID] [int] NULL,
+[EducationLevelID] [int] NULL,
+[MaritalStatusID] [int] NULL,
+[OccupationID] [int] NULL,
+[IStartedFencing] [varchar] (max) COLLATE Latin1_General_BIN NULL,
+[CheckListBits] [bigint] NULL,
+[ProfileCheckListBits] [bigint] NULL,
+[Comments] [varchar] (max) COLLATE Latin1_General_BIN NULL,
+[CreationDT] [datetime] NULL,
+[TerminationDT] [datetime] NULL,
+[CreationUserID] [int] NULL,
+[TerminationUserID] [int] NULL,
+[waiverSigned] [bit] NULL,
+[isTwin] [bit] NULL,
+[ETL_Sync_DeltaHashKey] [binary] (32) NULL
+)
+GO
+ALTER TABLE [dbo].[MMS_Profile] ADD CONSTRAINT [pk_UserID_MMS_Profile] PRIMARY KEY CLUSTERED  ([UserID])
+GO
+CREATE NONCLUSTERED INDEX [IX_FirstName] ON [dbo].[MMS_Profile] ([FirstName])
+GO
+CREATE NONCLUSTERED INDEX [IX_MMS_Profile_LastName] ON [dbo].[MMS_Profile] ([LastName])
+GO
+CREATE NONCLUSTERED INDEX [<Name of Missing Index, sysname,>] ON [dbo].[MMS_Profile] ([UserID], [FirstName], [LastName], [TerminationDT])
+GO
